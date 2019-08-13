@@ -28,7 +28,7 @@ class Student
     DB[:conn].execute(sql)
   end 
 
-  def save
+  def save(name, grade)
     if self.id
     self.update
     else
@@ -73,7 +73,7 @@ class Student
     end.first
   end
   
-  def self.update
+  def self.update(name, grade, id)
     sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
     DB[:conn].execute(sql, self.name, self.grade, self.id)
   end 
